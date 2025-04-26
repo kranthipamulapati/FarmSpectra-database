@@ -15,6 +15,7 @@ onRecordCreateRequest((e) => {
         const jsonRes = res.json;
 
         if (jsonRes.isPolygonValid === true) {
+            e.record.set("area_in_sqm", jsonRes.area);
             e.next();
         } else {
             throw new BadRequestError(400, jsonRes.message);
@@ -41,6 +42,7 @@ onRecordUpdateRequest((e) => {
         const jsonRes = res.json;
 
         if (jsonRes.isPolygonValid === true) {
+            e.record.set("area_in_sqm", jsonRes.area);
             e.next();
         } else {
             throw new BadRequestError(400, jsonRes.message);
