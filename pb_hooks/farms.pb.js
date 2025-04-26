@@ -1,3 +1,5 @@
+// replace with localhost in production
+
 onRecordCreateRequest((e) => {
     const coordinates = JSON.parse(e.record.get("coordinates"));
 
