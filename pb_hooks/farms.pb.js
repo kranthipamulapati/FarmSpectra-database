@@ -17,6 +17,7 @@ onRecordCreateRequest((e) => {
         const jsonRes = res.json;
 
         if (jsonRes.isPolygonValid === true) {
+            e.record.set("bbox", jsonRes.bbox);
             e.record.set("area_in_sqm", jsonRes.area);
             e.next();
         } else {
