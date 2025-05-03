@@ -30,10 +30,10 @@ onRecordCreateRequest((e) => {
         if (jsonRes.isCalendarValid === true) {
             e.next();
         } else {
-            throw new BadRequestError(400, jsonRes.message);
+            throw new Error(jsonRes.message);
         }
     } catch (err) {
-        throw new BadRequestError(400, err.message);
+        throw new ApiError(400, err.message);
     }
 }, "farm_calendar");
 
@@ -59,9 +59,9 @@ onRecordUpdateRequest((e) => {
         if (jsonRes.isCalendarValid === true) {
             e.next();
         } else {
-            throw new BadRequestError(400, jsonRes.message);
+            throw new Error(jsonRes.message);
         }
     } catch (err) {
-        throw new BadRequestError(400, err.message);
+        throw new ApiError(400, err.message);
     }
 }, "farm_calendar");

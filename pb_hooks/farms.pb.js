@@ -32,10 +32,10 @@ onRecordCreateRequest((e) => {
             e.record.set("area_in_sqm", jsonRes.area);
             e.next();
         } else {
-            throw new BadRequestError(400, jsonRes.message);
+            throw new Error(jsonRes.message);
         }
     } catch (err) {
-        throw new BadRequestError(400, err.message);
+        throw new ApiError(400, err.message);
     }
 }, "farms");
 
@@ -67,9 +67,9 @@ onRecordUpdateRequest((e) => {
             e.record.set("area_in_sqm", jsonRes.area);
             e.next();
         } else {
-            throw new BadRequestError(400, jsonRes.message);
+            throw new Error(jsonRes.message);
         }
     } catch (err) {
-        throw new BadRequestError(400, err.message);
+        throw new ApiError(400, err.message);
     }
 }, "farms");
