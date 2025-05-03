@@ -1,5 +1,16 @@
 // replace with localhost in production
 
+// farm satellite task create request
+// @param - id - optional, string, id of task in case of update
+// @param - farm_fk - string, id of farm
+// @param - satellite_fk - string, id of satellite
+// @param - start_date - Date
+// @param - end_date - Date
+// checks -
+//     1. start_date must be less than or equal to end_date date
+//     2. current tasking must not overlap with other tasks of same farm + satellite
+// 2 can be skipper as getPrevious check for existing dates before betting date
+
 onRecordCreateRequest((e) => {
     const farm_fk = e.record.get("farm_fk");
     const start_date = e.record.get("start_date");

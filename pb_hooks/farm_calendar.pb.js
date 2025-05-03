@@ -1,5 +1,14 @@
 // replace with localhost in production
 
+// farm calendar create request
+// @param - id - optional, string, id of calendar in case of update
+// @param - farm_fk - string, id of farm
+// @param - sowing_date - Date
+// @param - harvesting_date - Date
+// checks -
+//     1. sowing_date must be less than harvesting date
+//     2. current calendar must not overlap with other calendars of same farm
+
 onRecordCreateRequest((e) => {
     const farm_fk = e.record.get("farm_fk");
     const sowing_date = e.record.get("sowing_date");
