@@ -9,6 +9,8 @@
 // checks -
 //     1. start_date must be less than or equal to end_date date
 //     2. current tasking must not overlap with other tasks of same farm + satellite
+//     3. in case of update, start date can not be after existing start date & end date can not be less than today,
+//       as satellite data might have been processed already
 // 2 can be skipper as getPrevious check for existing dates before betting date
 
 onRecordCreateRequest((e) => {
