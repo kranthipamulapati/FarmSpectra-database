@@ -11,6 +11,7 @@
 
 onRecordCreateRequest((e) => {
     const farm_fk = e.record.get("farm_fk");
+    const crop_fk = e.record.get("crop_fk");
     const sowing_date = e.record.get("sowing_date");
     const harvesting_date = e.record.get("harvesting_date");
 
@@ -18,7 +19,12 @@ onRecordCreateRequest((e) => {
         const res = $http.send({
             method: "POST",
             timeout: 120,
-            body: JSON.stringify({ farm_fk, sowing_date, harvesting_date }),
+            body: JSON.stringify({
+                farm_fk,
+                crop_fk,
+                sowing_date,
+                harvesting_date,
+            }),
             headers: {
                 "content-type": "application/json",
             },
@@ -40,6 +46,7 @@ onRecordCreateRequest((e) => {
 onRecordUpdateRequest((e) => {
     const id = e.record.id;
     const farm_fk = e.record.get("farm_fk");
+    const crop_fk = e.record.get("crop_fk");
     const sowing_date = e.record.get("sowing_date");
     const harvesting_date = e.record.get("harvesting_date");
 
@@ -47,7 +54,13 @@ onRecordUpdateRequest((e) => {
         const res = $http.send({
             method: "POST",
             timeout: 120,
-            body: JSON.stringify({ id, farm_fk, sowing_date, harvesting_date }),
+            body: JSON.stringify({
+                id,
+                farm_fk,
+                crop_fk,
+                sowing_date,
+                harvesting_date,
+            }),
             headers: {
                 "content-type": "application/json",
             },
