@@ -47,13 +47,14 @@ onRecordCreateRequest((e) => {
 
 onRecordUpdateRequest((e) => {
     const id = e.record.id;
+    const user_fk = e.record.get("user_fk");
     const coordinates = JSON.parse(e.record.get("coordinates"));
 
     try {
         const res = $http.send({
             method: "POST",
             timeout: 120,
-            body: JSON.stringify({ id, coordinates }),
+            body: JSON.stringify({ id, user_fk, coordinates }),
             headers: {
                 "content-type": "application/json",
             },
