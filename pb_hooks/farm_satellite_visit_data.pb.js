@@ -34,7 +34,7 @@ routerAdd(
 
         const resJson = res.json;
 
-        e.json(200, { data: resJson.data });
+        e.json(200, { data: resJson });
     },
     $apis.requireAuth()
 );
