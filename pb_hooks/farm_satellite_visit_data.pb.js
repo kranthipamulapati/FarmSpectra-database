@@ -20,26 +20,21 @@ routerAdd(
     "POST",
     "/api/farms/satellite/index/data",
     (e) => {
-        const data = new DynamicModel({
-            farm_fk: "",
-            index_fk: "",
-            satellite_fk: "",
-            visit_date: new Date(),
-        });
-
-        e.bindBody(data);
+        const body = e.requestInfo().body;
 
         const res = $http.send({
             method: "POST",
             timeout: 120,
-            body: JSON.stringify(data),
+            body: JSON.stringify(body),
             headers: {
                 "content-type": "application/json",
             },
             url: "http://172.25.160.1:3000/farms/satellite/data/index",
         });
 
-        e.json(200, res);
+        const resJson = res.json;
+
+        e.json(200, resJson);
     },
     $apis.requireAuth()
 );
