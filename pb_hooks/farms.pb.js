@@ -74,3 +74,21 @@ onRecordUpdateRequest((e) => {
         throw new ApiError(400, err.message);
     }
 }, "farms");
+
+routerAdd(
+    "POST",
+    "/api/farms/satellite/index/data",
+    (e) => {
+        const data = new DynamicModel({
+            farm_fk: "",
+            index_fk: "",
+            satellite_fk: "",
+            visit_date: new Date(),
+        });
+
+        e.bindBody(data);
+
+        e.json(200, data);
+    },
+    $apis.requireAuth()
+);
