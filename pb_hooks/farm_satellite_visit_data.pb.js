@@ -18,7 +18,7 @@ onRecordAfterCreateSuccess((e) => {
 
 routerAdd(
     "POST",
-    "/api/farms/satellite/index/data",
+    "/api/farms/satellite/image/data",
     (e) => {
         const body = e.requestInfo().body;
 
@@ -29,7 +29,7 @@ routerAdd(
             headers: {
                 "content-type": "application/json",
             },
-            url: "http://172.25.160.1:3000/farms/satellite/data/index",
+            url: "http://172.25.160.1:3000/farms/satellite/data/image",
         });
 
         const resJson = res.json;
